@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Task Organizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6fc;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        button {
+            padding: 12px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #output {
+            margin-top: 25px;
+        }
+
+        .task {
+            background-color: #ecf5ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            color: #34495e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Daily Task Organizer</h1> 
+        
+        <button onclick="sortTasks()">Sort Task Names</button> 
+        <button onclick="reverseTasks()">Reverse Tasks</button> 
+        <button onclick="sortTimes()">Sort Task Times</button>
+        <button onclick="labelTimes()">Add Time Labels</button>
+
+
+        <div id="output"></div>
+</div>
+    <script>
+     let tasks = [
+        "Complete Homework",
+        "Read a Book", 
+        "Go for a Walk", 
+        "Study JavaScript",
+        "Clean the Room"
+        ];
+     let times = [
+        "14:00", 
+        "20:00", 
+        "17:00", 
+        "09:00", 
+        "11:00"
+        ]; 
+    function display(items) { 
+        let output = document.getElementById("output"); 
+        output.innerHTML = ""; 
+
+
+    items.forEach(function (item) { 
+        let div = document.createElement("div"); 
+        div.className = "task"; 
+        div.textContent = item; 
+        output.appendChild(div); 
+     }); 
+} 
+
+    function sortTasks() { 
+        let sortedTasks = [...tasks].sort(); 
+        display(sortedTasks); 
+
+} 
+
+    function reverseTasks() { 
+        let reversedTasks = [...tasks].reverse(); 
+        display(reversedTasks); 
+} 
+
+function sortTimes() { 
+    let sortedTimes = [...times].sort(); 
+    display(sortedTimes); 
+} 
+
+function labelTimes() { 
+    let labeledTimes = times.map(function (time) { 
+        return "Time: " + time; 
+        }); 
+        display(labeledTimes); 
+} display(tasks); 
+
+</script>
+</body>
+
+</html>
